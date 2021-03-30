@@ -1,5 +1,3 @@
-import javax.swing.text.html.HTMLDocument;
-
 public class Board {
     private String[][] gameBoard = new String[3][3];
 
@@ -62,6 +60,10 @@ public class Board {
         if(gameBoard[2][0].equals(gameBoard[1][1]) && gameBoard[1][1].equals(gameBoard[0][2]) && !gameBoard[1][1].equals(" ")){
             //win diagonally
             System.out.println(gameBoard[1][1]+" has won");
+            return true;
+        }
+        if(blankSpaces == 0){
+            System.out.println("It's a draw");
             return true;
         }
         return false;
