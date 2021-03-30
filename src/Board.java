@@ -35,4 +35,35 @@ public class Board {
     public void setGameBoard(String[][] gameBoard) {
         this.gameBoard = gameBoard;
     }
+    public boolean checkForWin(){
+        int blankSpaces = 0;
+        for(int i=0; i<3;i++){
+            for(int j=0; j<3;j++){
+                if(gameBoard[i][j].equals(" ")){
+                    blankSpaces++;
+                }
+            }
+            if(gameBoard[i][0].equals(gameBoard [i][1]) && gameBoard [i][1].equals(gameBoard[i][2]) && !gameBoard[i][0].equals(" ")){
+                //win horizontally
+                System.out.println(gameBoard[i][0]+" has won");
+                return true;
+            }
+            if(gameBoard[0][i].equals(gameBoard [1][i]) && gameBoard [1][i].equals(gameBoard[2][i]) && !gameBoard[0][i].equals(" ")){
+                //win vertically
+                System.out.println(gameBoard[0][i]+" has won");
+                return true;
+            }
+        }
+        if(gameBoard[0][0].equals(gameBoard[1][1]) && gameBoard[1][1].equals(gameBoard[2][2]) && !gameBoard[1][1].equals(" ")){
+            //win diagonally
+            System.out.println(gameBoard[1][1]+" has won");
+            return true;
+        }
+        if(gameBoard[2][0].equals(gameBoard[1][1]) && gameBoard[1][1].equals(gameBoard[0][2]) && !gameBoard[1][1].equals(" ")){
+            //win diagonally
+            System.out.println(gameBoard[1][1]+" has won");
+            return true;
+        }
+        return false;
+    }
 }
